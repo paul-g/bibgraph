@@ -33,18 +33,20 @@ progress` and `mapped`:
 
 1. Pick a paper
 2. Set it as `t`
-2. Add it to the bibliography graph
-3. Add all _interesting_ references (based on title and context)
-4. Add all work citing the paper (e.g. using Google Scholar's _Cited By_ feature)
-5. Set is as `m`
+3. Add it to the bibliography graph
+4. Add all _interesting_ references (based on title and context)
+5. Add all work citing the paper (e.g. using Google Scholar's _Cited By_ feature)
+6. Set is as `m`
 
 ## Requires
 
-```
-pip install bibtexparser
-pip install pydot2
-pip install networkx
-```
+1. `graphviz` - get with `apt-get install graphviz`
+
+2. `python2.7` - if it's not there - __REALLY?!_
+
+3. `pip` - get with `apt-get install pip`
+
+4. Some python packages: `pip install bibtexparser pydot2 networkx`
 
 ## Running
 
