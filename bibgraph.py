@@ -16,6 +16,7 @@ def main():
         bibtex = bibtexparser.load(bibtex_file)
 
     citations = {}
+    tags = {}
 
     for key, entry in bibtex.entries_dict.iteritems():
         cites = entry.get('cites')
@@ -23,6 +24,9 @@ def main():
             print key
             print cites
             citations[key] = unpack(cites)
+        t = entry.get('tags')
+        if t:
+            tags[key] = t
 
     G = nx.DiGraph()
     for key, entry in citations.iteritems():
@@ -30,10 +34,20 @@ def main():
             G.add_edge(key, cit)
     
     print citations
-    nx.write_dot(G, "test.dot")
 
-    call(["gvpr", "-c", "-f", "filter.gvpr", "test.dot", "-o", "test_nice.dot"])
-    call(["ccomps -x test_nice.dot | dot | gvpack -array1 | neato -Tpng -n2 -o test.png"], shell=True)
+    pydot_G = nx.to_pydot(G)
+    for node in pydot_G.get_nodes():
+        print node.get_name()
+        t = node.get_name()
+        if t and tags.get(t):
+            node.set('nodetype', tags.get(t))
+        else:
+            node.set('nodetype', 't')
+
+    pydot_G.write('bib.dot')
+
+    call(["gvpr", "-c", "-f", "filter.gvpr", "bib.dot", "-o", "bib_nice.dot"])
+    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpng -n2 -o bib.png"], shell=True)
     
 
 if __name__ == '__main__':
