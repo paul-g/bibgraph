@@ -52,4 +52,4 @@ pip install networkx
 
 This produces a `bib.png` file with the bibliography graph like the one below.
 
-[Example bibgraph](/bib.png?raw=true "Example bibgraph")
+![Example bibgraph](/bib.png?raw=true "Example bibgraph")
