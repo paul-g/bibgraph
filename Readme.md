@@ -3,6 +3,7 @@
 `bibgraph` builds a citation graph from an _annotated_ bibtex file.
 
 Bibgraph expects to find the following fields:
+
 1. `cites` on every entry to be added to the graph; this contains a
    list of (keys of )entries cited by that entry
 2. `tags` (optional) marking the status of that document; the
@@ -13,6 +14,9 @@ Bibgraph expects to find the following fields:
    4. `m` - append this tag to each entry you have fully mapped
       (i.e. checked all interesting references and works that refer to
       it and added them to the bibliography graph)
+
+This means you have to add the fields. _By hand_. You still have hands right? :)
+
 
 An example entry for a paper citing `zhang2009fpga` which is `in
 progress` and `mapped`:
