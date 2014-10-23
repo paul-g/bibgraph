@@ -1,0 +1,58 @@
+E {
+    color="gray";
+    fontsize=21;
+    fontname="Arial narrow";
+    arrowhead="vee";
+}
+
+N {
+   color = "lightgray";
+   fontcolor="black";
+   fontsize=14;
+   fontname="Ubuntu";
+}
+
+N[nodetype == "tm"]{
+   style="filled";
+   color = "#BA8A74";
+   fontcolor="white";
+   fontsize=14;
+   fontname="Ubuntu";
+}
+
+N[nodetype == "t"]{
+   color = "#BA8A74";
+   fontcolor="black";
+   fontsize=14;
+   fontname="Ubuntu";
+}
+
+N[nodetype == "r"] {
+   color = "#95ac6c";
+   fontcolor="black";
+   fontsize=14;
+   fontname="Ubuntu";
+}
+
+N[nodetype == "rm"] {
+   style="filled";
+   color = "#95ac6c";
+   fontcolor="white";
+   fontsize=14;
+   fontname="Ubuntu";
+}
+
+N[nodetype == "i"] {
+   color = "#535f7d";
+   fontcolor="black";
+   fontsize=14;
+   fontname="Ubuntu";
+}
+
+N[nodetype == "im"] {
+   style="filled",
+   color = "#535f7d";
+   fontcolor="white";
+   fontsize=14;
+   fontname="Ubuntu";
+}
