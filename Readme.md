@@ -1,0 +1,5 @@
+## Requires
+
+```
+pip install bibtexparser
+```
