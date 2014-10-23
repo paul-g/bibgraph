@@ -36,7 +36,7 @@ def main():
     for key, entry in citations.iteritems():
         for cit in entry:
             G.add_edge(key, cit)
-    
+
     print citations
 
     pydot_G = nx.to_pydot(G)
@@ -44,15 +44,18 @@ def main():
         print node.get_name()
         t = node.get_name()
         if t and tags.get(t):
+            print 'Setting tags'
             node.set('nodetype', tags.get(t))
         else:
             node.set('nodetype', 't')
 
+    pydot_G.set('rankdir', 'LR')
+    pydot_G.set('style', 'dashed')
     pydot_G.write('bib.dot')
 
-    call(["gvpr", "-c", "-f", "filter.gvpr", "bib.dot", "-o", "bib_nice.dot"])
+    call(["gvpr -c -f filter.gvpr bib.dot > bib_nice.dot"], shell=True)
     call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpng -n2 -o bib.png"], shell=True)
-    
+
 
 if __name__ == '__main__':
     main()
