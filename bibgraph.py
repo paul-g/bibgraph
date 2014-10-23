@@ -9,6 +9,10 @@ def unpack(citationString):
     return [s.strip() for s in citationString.split(',')]
 
 
+# The following are the node classes
+#   r, i, t - read, in progress, to read
+#   m - maps/includes all (relevant) work citing this node at the time of writing
+
 def main():
     bibfile = sys.argv[1]
 
