@@ -25,8 +25,6 @@ def main():
     for key, entry in bibtex.entries_dict.iteritems():
         cites = entry.get('cites')
         if cites:
-            print key
-            print cites
             citations[key] = unpack(cites)
         t = entry.get('tags')
         if t:
@@ -37,14 +35,10 @@ def main():
         for cit in entry:
             G.add_edge(key, cit)
 
-    print citations
-
     pydot_G = nx.to_pydot(G)
     for node in pydot_G.get_nodes():
-        print node.get_name()
         t = node.get_name()
         if t and tags.get(t):
-            print 'Setting tags'
             node.set('nodetype', tags.get(t))
         else:
             node.set('nodetype', 't')
