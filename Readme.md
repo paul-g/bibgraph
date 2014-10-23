@@ -37,12 +37,13 @@ progress` and `mapped`:
 4. Add all _interesting_ references (based on title and context)
 5. Add all work citing the paper (e.g. using Google Scholar's _Cited By_ feature)
 6. Set is as `m`
+7. Play some _Mass Effect_...
 
 ## Requires
 
 1. `graphviz` - get with `apt-get install graphviz`
 
-2. `python2.7` - if it's not there - __REALLY?!_
+2. `python2.7` - if it's not there - __REALLY?!__
 
 3. `pip` - get with `apt-get install pip`
 
@@ -52,6 +53,6 @@ progress` and `mapped`:
 
 `python bibgraph.py /path/to/your/bibliography.bib`
 
-This produces a `bib.png` file with the bibliography graph like the one below.
+This produces a `bib.png` file a the bibliography graph like the one below.
 
 ![Example bibgraph](/bib.png?raw=true "Example bibgraph")
