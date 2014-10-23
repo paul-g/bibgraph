@@ -35,7 +35,7 @@ progress` and `mapped`:
 2. Set it as `t`
 2. Add it to the bibliography graph
 3. Add all _interesting_ references (based on title and context)
-4. All all work citing the paper (e.g. Google Scholar's _Cited By_ feature)
+4. Add all work citing the paper (e.g. using Google Scholar's _Cited By_ feature)
 5. Set is as `m`
 
 ## Requires
@@ -50,4 +50,6 @@ pip install networkx
 
 `python bibgraph.py /path/to/your/bibliography.bib`
 
-This produces a `bib.png` file with the bibliography graph.
+This produces a `bib.png` file with the bibliography graph like the one below.
+
+[Example bibgraph](/bib.png?raw=true "Example bibgraph")
