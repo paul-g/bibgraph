@@ -40,8 +40,6 @@ def main():
         t = node.get_name()
         if t and tags.get(t):
             node.set('nodetype', tags.get(t))
-        else:
-            node.set('nodetype', 't')
 
     pydot_G.set('rankdir', 'LR')
     pydot_G.set('style', 'dashed')
