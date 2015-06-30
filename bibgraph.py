@@ -2,12 +2,31 @@ import sys
 import bibtexparser
 import networkx as nx
 import pydot
+from collections import Counter
+
 from subprocess import call
 
+TAG_MAP = {
+        't': 'toread',
+        'm': 'mapped',
+        'i': 'inprogress',
+        'r': 'read'}
 
 def unpack(citationString):
     return [s.strip() for s in citationString.split(',')]
 
+
+def quick_stats(bibtex):
+    stats = Counter()
+    for key, entry in bibtex.entries_dict.iteritems():
+        tag = entry.get('tags')
+        if tag:
+            newtag = ''
+            for t in tag:
+                newtag += TAG_MAP[t] + ' '
+            tag = newtag
+        stats[tag] += 1
+    return stats
 
 # The following are the node classes
 #   r, i, t - read, in progress, to read
@@ -18,6 +37,10 @@ def main():
 
     with open(bibfile) as bibtex_file:
         bibtex = bibtexparser.load(bibtex_file)
+
+    stats = quick_stats(bibtex)
+    for k,v in stats.iteritems():
+        print "{0:>5} --> {1:}".format(v, k)
 
     citations = {}
     tags = {}
